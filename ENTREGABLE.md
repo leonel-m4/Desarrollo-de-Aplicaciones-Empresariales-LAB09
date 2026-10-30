@@ -96,3 +96,46 @@ Una clase CSS es un detalle de presentación: puede cambiar al rediseñar la pá
 Esto permite detectar problemas que pueden dejar la interfaz aparentemente correcta, como una propiedad DOM inválida (`class` en vez de `className`) o la falta de una `key`. No se limita a esos avisos: captura cualquier llamada a `console.error` durante la prueba. Tampoco captura `console.warn` ni convierte por sí mismo las excepciones en mensajes.
 
 El espía se crea antes de cada prueba con `beforeEach` y los métodos originales se restauran después con `vi.restoreAllMocks()` en `afterEach`, evitando que una prueba contamine las siguientes. Las pruebas de consola van primero deliberadamente porque React puede emitir cada tipo de aviso solo una vez por archivo; así se comprueba el aviso desde el primer render.
+
+## Paso 4. Ejecución inicial del duelo
+
+**Enunciado:** Ejecutar `npm run duel` antes de escribir nada. Copiar el resumen (todas las pruebas en rojo) y el mensaje de una de ellas.
+
+**Desarrollo y resultado:**
+
+Se ejecutó `npm.cmd run duel`, equivalente a `npm run duel` en esta instalación de Windows. El script ejecuta `vitest run --mode team src/duel`. Los ocho componentes de `src/duel/team/` seguían sin implementar; no se modificaron antes de esta comprobación.
+
+Resumen copiado de la ejecución (sin los colores de la terminal):
+
+```text
+ Test Files  8 failed (8)
+      Tests  43 failed (43)
+   Start at  15:22:56
+   Duration  2.42s (transform 338ms, setup 1.67s, collect 2.44s, tests 399ms, environment 8.92s, prepare 1.80s)
+```
+
+Todas las pruebas del duelo están en rojo: **43 fallan, 0 pasan**, distribuidas en 8 archivos.
+
+| Tarea | Componente | Pruebas fallidas |
+|---|---|---|
+| 1 | Header | 5 |
+| 2 | Footer | 6 |
+| 3 | MovieCard | 6 |
+| 4 | Showtimes | 6 |
+| 5 | MovieList | 5 |
+| 6 | Synopsis | 5 |
+| 7 | Hero | 5 |
+| 8 | AgentMessage | 5 |
+| **Total** | | **43** |
+
+Ejemplo de una prueba fallida y su mensaje:
+
+```text
+FAIL src/duel/tests/T1-header.test.jsx > [team] T1 Header > es el encabezado de la página (rol banner)
+Error: TODO(team): write Header in src/duel/team/Header.jsx
+  at Header src/duel/team/Header.jsx:6:9
+```
+
+El fallo ocurre al intentar renderizar `Header`: su implementación inicial lanza una excepción en lugar de devolver JSX. Por eso la prueba no llega a comprobar el rol `banner`. Los demás componentes también contienen excepciones `TODO(team)`, de modo que este resultado es el punto de partida esperado del laboratorio, no un problema de instalación. El comando terminó con código de salida `1`, indicando pruebas fallidas.
+
+Este comando solo ejecuta las pruebas del duelo; no incluye las cuatro pruebas de datos que se ejecutan con `npm test`.
