@@ -302,3 +302,27 @@ Los cuatro se comprobaron juntos en una ejecución real de `npm.cmd run duel`: *
 **Enunciado:** Solo si el docente autoriza un asistente, pedir los ocho componentes desde cero con sus cabeceras y datos y guardar las respuestas aparte; sin autorización, omitir el paso.
 
 **Decisión:** No se ha confirmado autorización docente, por lo que se omite esta actividad. No se generaron ocho respuestas nuevas ni una carpeta de comparación. La asistencia efectivamente utilizada en otros pasos se registra por separado y no se oculta ni se considera prueba de autorización. Para los pasos siguientes se utilizarán las respuestas originales de `src/duel/ai/`, tal como pide la guía.
+
+## Paso 8. Duelo de las respuestas originales de IA
+
+**Enunciado:** Ejecutar `npm run duel:ai` y copiar cuántas pruebas pasan, cuántas fallan y las tareas afectadas.
+
+**Resultado real:** `npm.cmd run duel:ai`, con informe JSON, terminó con salida `1`:
+
+```text
+Test Files  6 failed | 2 passed (8)
+     Tests  14 failed | 29 passed (43)
+```
+
+| Tarea | Componente | Aprobadas | Fallidas |
+|---|---|---|---|
+| 1 | Header | 5 | 0 |
+| 2 | Footer | 5 | 1 |
+| 3 | MovieCard | 5 | 1 |
+| 4 | Showtimes | 4 | 2 |
+| 5 | MovieList | 3 | 2 |
+| 6 | Synopsis | 2 | 3 |
+| 7 | Hero | 0 | 5 |
+| 8 | AgentMessage | 5 | 0 |
+
+Son **seis tareas defectuosas y catorce pruebas fallidas**, no seis pruebas fallidas. [Informe real con nombres y mensajes](evidencias/paso08-duel-ai.json). Se ejecutaron los archivos originales sin editarlos; el comando lo realizó el asistente.
