@@ -1,0 +1,259 @@
+{
+  "command": "npm.cmd run duel:fixed (arreglo 1: Footer)",
+  "passed": 30,
+  "failed": 13,
+  "total": 43,
+  "files": [
+    {
+      "file": "src/duel/tests/T1-header.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T1 Header no produce avisos de React en la consola",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T1 Header es el encabezado de la página (rol banner)",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T1 Header el nombre del cine es un encabezado de nivel 1",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T1 Header la navegación se llama «Principal» y lista un enlace por opción",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T1 Header con otros datos muestra esos datos y no los del ejemplo",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T2-footer.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T2 Footer no produce avisos de React en la consola (usa className, no class)",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T2 Footer es el pie de la página (rol contentinfo)",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T2 Footer muestra la dirección",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T2 Footer el teléfono es un enlace tel:",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T2 Footer el correo es un enlace mailto:",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T2 Footer con otros datos de contacto muestra esos datos",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T3-moviecard.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T3 MovieCard no produce avisos de React en la consola",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T3 MovieCard es un artículo (rol article)",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T3 MovieCard la imagen tiene como texto alternativo el título de la película",
+          "status": "failed",
+          "messages": [
+            "TestingLibraryElementError: Unable to find an element with the alt text: La Última Función\n\nIgnored nodes: comments, script, style\n\u001b[36m<body>\u001b[39m\n  \u001b[36m<div>\u001b[39m\n    \u001b[36m<article\u001b[39m\n      \u001b[33mclass\u001b[39m=\u001b[32m\"movie-card\"\u001b[39m\n    \u001b[36m>\u001b[39m\n      \u001b[36m<img\u001b[39m\n        \u001b[33msrc\u001b[39m=\u001b[32m\"/posters/1.svg\"\u001b[39m\n      \u001b[36m/>\u001b[39m\n      \u001b[36m<h3>\u001b[39m\n        \u001b[0mLa Última Función\u001b[0m\n      \u001b[36m</h3>\u001b[39m\n      \u001b[36m<p>\u001b[39m\n        \u001b[0m★ \u001b[0m\n        \u001b[0m4.5\u001b[0m\n      \u001b[36m</p>\u001b[39m\n    \u001b[36m</article>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n    at Object.getElementError (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\config.js:37:19)\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\query-helpers.js:76:38\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\query-helpers.js:52:17\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\query-helpers.js:95:19\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T3-moviecard.test.jsx:30:21\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)"
+          ]
+        },
+        {
+          "name": "[fixed] T3 MovieCard el título es un encabezado de nivel 3",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T3 MovieCard la valoración se muestra como texto con una estrella",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T3 MovieCard con otra película muestra los datos de esa película",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T4-showtimes.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T4 Showtimes no produce avisos de React en la consola",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T4 Showtimes con horas dibuja una lista con un elemento por hora, en orden",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T4 Showtimes con horas no muestra el mensaje de que no hay funciones",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T4 Showtimes con lista vacía muestra el mensaje «Sin funciones hoy»",
+          "status": "failed",
+          "messages": [
+            "TestingLibraryElementError: Unable to find an element with the text: Sin funciones hoy. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.\n\nIgnored nodes: comments, script, style\n\u001b[36m<body>\u001b[39m\n  \u001b[36m<div>\u001b[39m\n    \u001b[36m<div\u001b[39m\n      \u001b[33mclass\u001b[39m=\u001b[32m\"showtimes\"\u001b[39m\n    \u001b[36m>\u001b[39m\n      \u001b[0m0\u001b[0m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n    at Object.getElementError (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\config.js:37:19)\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\query-helpers.js:76:38\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\query-helpers.js:52:17\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\@testing-library\\dom\\dist\\query-helpers.js:95:19\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T4-showtimes.test.jsx:38:19\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)"
+          ]
+        },
+        {
+          "name": "[fixed] T4 Showtimes con lista vacía no imprime un 0 suelto: el único texto es el mensaje",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected '0' to be 'Sin funciones hoy' // Object.is equality\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T4-showtimes.test.jsx:43:35\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at runSuite (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n    at runSuite (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)"
+          ]
+        },
+        {
+          "name": "[fixed] T4 Showtimes con lista vacía no dibuja una lista",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T5-movielist.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T5 MovieList no produce avisos de React en la consola (cada elemento lleva su key)",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T5 MovieList dibuja una lista con un elemento por película, en el mismo orden",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T5 MovieList cada elemento contiene una tarjeta (un article)",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T5 MovieList al invertir el orden, cada película conserva su propio nodo del DOM",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected <li><article …(1)>…(3)</article></li> to be <li><article …(1)>…(3)</article></li> // Object.is equality\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T5-movielist.test.jsx:46:29\n    at Array.forEach (<anonymous>)\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T5-movielist.test.jsx:45:12\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)"
+          ]
+        },
+        {
+          "name": "[fixed] T5 MovieList al quitar la primera película, las demás conservan su nodo del DOM",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected <li><article …(1)>…(3)</article></li> to be <li><article …(1)>…(3)</article></li> // Object.is equality\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T5-movielist.test.jsx:55:29\n    at Array.forEach (<anonymous>)\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T5-movielist.test.jsx:54:21\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T6-synopsis.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T6 Synopsis no produce avisos de React en la consola",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T6 Synopsis un texto normal se muestra tal cual dentro de un párrafo",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T6 Synopsis la sinopsis hostil se muestra como texto literal, con sus etiquetas a la vista",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected 'Gran estreno  no te lo pierdas' to be 'Gran estreno <img src=x onerror=\"wind…' // Object.is equality\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T6-synopsis.test.jsx:33:54\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at runSuite (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n    at runSuite (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)"
+          ]
+        },
+        {
+          "name": "[fixed] T6 Synopsis la sinopsis hostil no crea elementos nuevos en la página (ni img ni b)",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected <img src=\"x\" …(1)></img>\n<b></b> to have a length of +0 but got 2\n    at Proxy.<anonymous> (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/expect/dist/index.js:1257:20)\n    at Proxy.<anonymous> (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/expect/dist/index.js:1029:14)\n    at Proxy.methodWrapper (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/chai/index.js:1686:25)\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T6-synopsis.test.jsx:38:58\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)"
+          ]
+        },
+        {
+          "name": "[fixed] T6 Synopsis la sinopsis hostil no ejecuta código: window.__xss queda sin definir",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected 1 to be undefined\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T6-synopsis.test.jsx:44:23\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at runSuite (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n    at runSuite (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T7-hero.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T7 Hero con una película correcta se dibuja sin lanzar ningún error",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected [Function] to not throw an error but 'TypeError: Cannot read properties of …' was thrown\n    at Proxy.<anonymous> (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/expect/dist/index.js:1420:16)\n    at Proxy.<anonymous> (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/expect/dist/index.js:1029:14)\n    at Proxy.methodWrapper (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/chai/index.js:1686:25)\n    at C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\tests\\T7-hero.test.jsx:18:58\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///C:/Users/Leonel/Desktop/Desarrollo-de-Aplicaciones-Empresariales-LAB09/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)"
+          ]
+        },
+        {
+          "name": "[fixed] T7 Hero no produce avisos de React en la consola",
+          "status": "failed",
+          "messages": [
+            "TypeError: Cannot read properties of undefined (reading 'title')\n    at Hero (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\fixed\\Hero.jsx:4:17)\n    at Object.react_stack_bottom_frame (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:28571:20)\n    at renderWithHooks (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:8030:22)\n    at updateFunctionComponent (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:10569:19)\n    at beginWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:12205:18)\n    at runWithFiberInDEV (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:1048:13)\n    at performUnitOfWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19176:22)\n    at workLoopSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19004:41)\n    at renderRootSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18985:11)\n    at performWorkOnRoot (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18094:35)"
+          ]
+        },
+        {
+          "name": "[fixed] T7 Hero es una región llamada «Destacada»",
+          "status": "failed",
+          "messages": [
+            "TypeError: Cannot read properties of undefined (reading 'title')\n    at Hero (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\fixed\\Hero.jsx:4:17)\n    at Object.react_stack_bottom_frame (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:28571:20)\n    at renderWithHooks (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:8030:22)\n    at updateFunctionComponent (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:10569:19)\n    at beginWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:12205:18)\n    at runWithFiberInDEV (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:1048:13)\n    at performUnitOfWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19176:22)\n    at workLoopSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19004:41)\n    at renderRootSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18985:11)\n    at performWorkOnRoot (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18094:35)"
+          ]
+        },
+        {
+          "name": "[fixed] T7 Hero el título de la película es un encabezado de nivel 2",
+          "status": "failed",
+          "messages": [
+            "TypeError: Cannot read properties of undefined (reading 'title')\n    at Hero (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\fixed\\Hero.jsx:4:17)\n    at Object.react_stack_bottom_frame (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:28571:20)\n    at renderWithHooks (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:8030:22)\n    at updateFunctionComponent (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:10569:19)\n    at beginWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:12205:18)\n    at runWithFiberInDEV (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:1048:13)\n    at performUnitOfWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19176:22)\n    at workLoopSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19004:41)\n    at renderRootSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18985:11)\n    at performWorkOnRoot (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18094:35)"
+          ]
+        },
+        {
+          "name": "[fixed] T7 Hero el enlace «Ver horarios» apunta a #horarios- seguido del id de la película",
+          "status": "failed",
+          "messages": [
+            "TypeError: Cannot read properties of undefined (reading 'title')\n    at Hero (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\src\\duel\\fixed\\Hero.jsx:4:17)\n    at Object.react_stack_bottom_frame (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:28571:20)\n    at renderWithHooks (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:8030:22)\n    at updateFunctionComponent (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:10569:19)\n    at beginWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:12205:18)\n    at runWithFiberInDEV (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:1048:13)\n    at performUnitOfWork (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19176:22)\n    at workLoopSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:19004:41)\n    at renderRootSync (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18985:11)\n    at performWorkOnRoot (C:\\Users\\Leonel\\Desktop\\Desarrollo-de-Aplicaciones-Empresariales-LAB09\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:18094:35)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "src/duel/tests/T8-agentmessage.test.jsx",
+      "tests": [
+        {
+          "name": "[fixed] T8 AgentMessage no produce avisos de React en la consola",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T8 AgentMessage el autor va en negrita (strong) seguido de dos puntos",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T8 AgentMessage el texto va en un span dentro del mismo párrafo",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T8 AgentMessage el texto de un agente con etiquetas se muestra literal, nunca como HTML",
+          "status": "passed"
+        },
+        {
+          "name": "[fixed] T8 AgentMessage el texto de un agente no ejecuta código: window.__xss queda sin definir",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

@@ -351,3 +351,21 @@ Los mensajes completos están en [el informe del paso 8](evidencias/paso08-duel-
 **Enunciado:** Ejecutar `npm run fixed:init` y `npm run duel:fixed`. Arreglar después únicamente `src/duel/fixed/`, sin editar pruebas ni `ai/`.
 
 **Ejecución real del asistente:** `npm.cmd run fixed:init` creó la carpeta sin usar `--force`. La copia inicial coincide con `ai/`. Antes de corregir nada, `npm.cmd run duel:fixed` dio **29 aprobadas y 14 fallidas**, en **2 archivos aprobados y 6 fallidos**, salida `1`: el mismo rojo del paso 8. [Informe inicial](evidencias/paso10-fixed-rojo.json). Este commit conserva esa copia defectuosa para poder comparar el antes y el después en el historial; los arreglos se harán en el paso 11.
+
+## Paso 11. Correcciones de una en una en fixed
+
+**Enunciado:** Arreglar los seis fallos por separado, ejecutar `npm run duel:fixed` después de cada arreglo, registrar cuántas pruebas rojas quedan y explicar código anterior, causa y solución.
+
+Se realizaron seis arreglos secuenciales, sin agruparlos antes de probar. El asistente ejecutó el duelo completo después de cada uno; no se modificaron `ai/`, las pruebas ni los datos.
+
+| Orden | Arreglo y explicación de la causa | Aprobadas | Rojas restantes | Informe real |
+|---|---|---|---|---|
+| Inicial | Copia sin corregir del paso 10. | 29 | 14 | [Inicial](evidencias/paso10-fixed-rojo.json) |
+| 1. Footer | Antes enviaba `class` como propiedad DOM. React espera `className` en JSX y avisa por la propiedad incorrecta. Ahora usa `className="footer"`; no se cambia el contenido ni los enlaces. | 30 | 13 | [Footer](evidencias/paso11-01-footer.json) |
+| 2. MovieCard | Antes la imagen solo tenía `src`. React puede renderizarla sin avisar, pero faltaba la alternativa textual y su nombre accesible. Ahora `alt={movie.title}` describe la película recibida. | 31 | 12 | [MovieCard](evidencias/paso11-02-moviecard.json) |
+| 3. Showtimes | En JavaScript `[]` es verdadero, por lo que `!times` no detectaba el arreglo vacío. `0 && JSX` devuelve `0`, y React representa ese número como texto. Ahora `times.length === 0` devuelve el mensaje y termina la función; el otro retorno dibuja la lista, sin un número suelto. | 33 | 10 | [Showtimes](evidencias/paso11-03-showtimes.json) |
+| 4. MovieList | Antes las claves eran índices. React reutilizaba los nodos según posición al reordenar o eliminar, no según película. Ahora `key={movie.id}` asocia cada elemento a su identidad estable y conserva su propio nodo del DOM. | 35 | 8 | [MovieList](evidencias/paso11-04-movielist.json) |
+| 5. Synopsis | Antes convertía saltos de línea en HTML e insertaba la cadena con `dangerouslySetInnerHTML`. Esa API evita el escape normal y deja al navegador interpretar etiquetas y manejadores de eventos. Ahora devuelve `<p className="synopsis">{text}</p>`; el CSS existente `white-space: pre-line` conserva la presentación de saltos de línea sin ejecutar HTML. | 38 | 5 | [Synopsis](evidencias/paso11-05-synopsis.json) |
+| 6. Hero | Antes desestructuraba `film`, aunque el consumidor entrega `movie`. React pasa las props sin renombrarlas: leer `title` sobre `undefined` lanzaba una excepción. Ahora recibe `movie` y utiliza `movie.title` y `movie.id`, respetando el contrato. | 43 | 0 | [Hero y verde final](evidencias/paso11-06-hero-verde.json) |
+
+**Resultado:** `duel:fixed` completamente verde: **43/43 pruebas, 8/8 archivos**, salida `0`. Header y AgentMessage se conservaron porque ya cumplían sus contratos. Los cambios y explicaciones de este paso fueron realizados por el asistente, no por el estudiante sin ayuda.
