@@ -107,3 +107,15 @@ Las pruebas se ejecutan en jsdom (un navegador simulado) con Vitest y Testing Li
 ## Convenciones del curso
 
 Código, nombres y comentarios en inglés; explicaciones y entregables en español.
+
+## Explicación complementaria — Paso 12
+
+### Identidad de los elementos y claves de la lista
+
+Las dos pruebas de MovieList con `rerender` revisan que cada película conserve su mismo elemento de la página cuando cambia la lista. Una invierte el orden y la otra elimina la primera película. No comparan solamente los títulos o cómo se ve el contenido, sino que comprueban que cada película siga teniendo el mismo nodo del DOM que tenía antes.
+
+Usar `key={index}` no genera un aviso porque las claves existen y no se repiten. El problema es que representan posiciones, no películas. Por eso la cartelera puede verse bien: React cambia el título y la imagen de cada posición, aunque haya reutilizado ese elemento para otra película.
+
+Esto sería un problema si las filas tuvieran campos que el usuario está rellenando. Al eliminar una película, el texto escrito podría quedar en la fila de otra porque React reutilizó el mismo campo. Con `key={movie.id}`, cada película conserva su identidad aunque cambie de posición.
+
+Las pruebas están en [T5-movielist.test.jsx](src/duel/tests/T5-movielist.test.jsx). Esta explicación fue preparada con apoyo de IA; el desarrollo completo, las evidencias y el registro de asistencia están en [ENTREGABLE.md](ENTREGABLE.md). La redacción personal solicitada por la guía queda para revisión del estudiante.
