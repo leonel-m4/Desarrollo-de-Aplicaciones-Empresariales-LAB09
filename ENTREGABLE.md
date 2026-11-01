@@ -384,3 +384,39 @@ Se realizaron seis arreglos secuenciales, sin agruparlos antes de probar. El asi
 - En una lista con campos no controlados, el valor escrito vive en el nodo del `input`; con componentes con estado, el estado también puede seguir a la identidad reutilizada. Por ejemplo, si se escribió «2 entradas» en la primera película y se elimina esa película, la segunda puede reutilizar esa fila y heredar la anotación ajena. Con `key={movie.id}`, la película conserva su nodo y su estado al cambiar de posición.
 
 **Evidencia ya ejecutada:** las dos pruebas de identidad fallaron con la IA original ([paso 8](evidencias/paso08-duel-ai.json)) y pasan después de usar el identificador estable en fixed ([paso 11](evidencias/paso11-06-hero-verde.json)); también pasan en team ([paso 6](evidencias/paso06-duel.json)). No se cambiaron las pruebas para conseguirlo. Esta explicación no se atribuye como redacción personal del estudiante.
+
+## Paso 13. Demostración XSS local y restauración segura
+
+**Enunciado:** Cambiar temporalmente el Synopsis de team a `dangerouslySetInnerHTML`, observar la ejecución del ataque en el navegador, copiar las tres pruebas fallidas y devolver el componente a su versión correcta.
+
+**Procedimiento real del asistente:** se cambió temporalmente solo el retorno a:
+
+```jsx
+return <p className="synopsis" dangerouslySetInnerHTML={{ __html: text }} />;
+```
+
+Se abrió una página nueva de http://localhost:5173/?paso=13-vulnerable mediante navegación completa. La sinopsis creó un `img` con `src="x"` y un `b`. La imagen falló al cargar y su `onerror` ejecutó la asignación original del dato hostil. Una consulta al contexto principal del navegador y su consola confirmó:
+
+```text
+typeof window.__xss → "number"
+window.__xss → 1
+Object.keys(window).filter(k => k.endsWith("xss")) → ["__xss"]
+```
+
+La primera consulta de la herramienta, en su contexto aislado, no veía esa propiedad global. Se verificó entonces en el contexto principal mediante un diagnóstico que **solo leyó** la propiedad y comunicó el resultado por el DOM y la consola; no se asignó manualmente `window.__xss` para fabricar una prueba. [Observación real y registro de consola](evidencias/paso13-navegador.json).
+
+![Captura real durante la demostración temporal: imagen fallida y texto en negrita](evidencias/paso13-synopsis-vulnerable.png)
+
+`npm.cmd run duel` produjo **40 aprobadas y 3 fallidas**, salida `1`. Fallaron exactamente estas pruebas de T6:
+
+| Prueba | Mensaje observado |
+|---|---|
+| la sinopsis hostil se muestra como texto literal, con sus etiquetas a la vista | `expected 'Gran estreno  no te lo pierdas' to be 'Gran estreno <img src=x onerror="wind…' // Object.is equality` |
+| la sinopsis hostil no crea elementos nuevos en la página (ni img ni b) | `to have a length of +0 but got 2` al encontrar `img` y `b`. |
+| la sinopsis hostil no ejecuta código: window.__xss queda sin definir | `AssertionError: expected 1 to be undefined`. |
+
+[Informe de las tres pruebas fallidas](evidencias/paso13-team-vulnerable.json).
+
+**Restauración realizada antes del commit:** se devolvió el retorno a `<p className="synopsis">{text}</p>`. Otra ejecución real volvió a **43/43 aprobadas**, salida `0` ([informe seguro](evidencias/paso13-team-restaurado.json)). Tras una navegación completa nueva, la comprobación del contexto principal confirmó `typeof window.__xss === "undefined"` y ausencia de elementos inyectados. Una recarga completa es importante: HMR puede conservar una propiedad global creada durante el ataque aunque el componente ya sea seguro.
+
+**Resultado:** la demostración fue local y temporal. No se subió ninguna versión vulnerable de Synopsis; el commit contiene únicamente documentación y evidencias, y el componente queda seguro. `ai/` conserva el defecto intencional original del laboratorio. La ejecución fue realizada por el asistente y se registra como tal.

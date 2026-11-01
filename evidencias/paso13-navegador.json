@@ -1,0 +1,19 @@
+{
+  "url": "http://localhost:5173/?paso=13-vulnerable",
+  "method": "Live browser inspection; diagnostic script only reads the page's main-world flag, never assigns it",
+  "mainWorld": {
+    "imageComplete": true,
+    "imageWidth": 0,
+    "xss": 1,
+    "xssKeys": ["__xss"],
+    "xssType": "number"
+  },
+  "dom": {
+    "injectedImages": 1,
+    "injectedBold": 1,
+    "synopsisHTML": "Gran estreno <img src=\"x\" onerror=\"window.__xss=1\"> <b>no te lo pierdas</b>",
+    "synopsisText": "Gran estreno  no te lo pierdas"
+  },
+  "console": "Paso 13 (contexto principal): {\"xssType\":\"number\",\"xss\":1,\"xssKeys\":[\"__xss\"],\"imageComplete\":true,\"imageWidth\":0}",
+  "note": "The initial isolated-world inspection did not see the global. The page's main-world inspection above confirmed execution. Synopsis was restored immediately afterward."
+}
