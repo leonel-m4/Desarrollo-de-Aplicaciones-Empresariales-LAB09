@@ -369,3 +369,18 @@ Se realizaron seis arreglos secuenciales, sin agruparlos antes de probar. El asi
 | 6. Hero | Antes desestructuraba `film`, aunque el consumidor entrega `movie`. React pasa las props sin renombrarlas: leer `title` sobre `undefined` lanzaba una excepción. Ahora recibe `movie` y utiliza `movie.title` y `movie.id`, respetando el contrato. | 43 | 0 | [Hero y verde final](evidencias/paso11-06-hero-verde.json) |
 
 **Resultado:** `duel:fixed` completamente verde: **43/43 pruebas, 8/8 archivos**, salida `0`. Header y AgentMessage se conservaron porque ya cumplían sus contratos. Los cambios y explicaciones de este paso fueron realizados por el asistente, no por el estudiante sin ayuda.
+
+## Paso 12. Identidad del DOM y claves por índice
+
+**Enunciado:** Leer las dos pruebas de MovieList con `rerender` y explicar con palabras propias la identidad de nodos, la ausencia de avisos por `key={index}` y el riesgo en campos editables.
+
+**Borrador explicativo del asistente, pendiente de revisión y redacción personal del estudiante:**
+
+- `itemOf(movie)` busca el título y obtiene su `<li>` mediante `closest("li")`. Antes de cambiar los datos, las pruebas guardan las referencias a esos nodos en `before`.
+- En la prueba de inversión se llama a `rerender` con `[...movies].reverse()`: se copia el arreglo para no mutar los datos originales. Para cada película se exige que el `<li>` posterior sea **exactamente el mismo objeto DOM** que antes. `toBe` compara identidad mediante `Object.is`, no igualdad del HTML ni coincidencia del título.
+- En la prueba de eliminación se pasa `movies.slice(1)`. Cada película restante debe conservar el nodo que tenía antes: el elemento nuevo en posición `i` se compara con `before[i + 1]`. Además, el primer título debe desaparecer.
+- React no avisa por `key={index}` porque recibe claves presentes y únicas entre esos hermanos. No puede saber si el autor quería identificar posiciones o películas. La clave sirve internamente a React; no es un atributo visible del DOM.
+- Al invertir o quitar películas con índices como claves, React reutiliza el nodo de la posición y cambia sus props para mostrar otra película. En tarjetas sin estado, el título y la imagen se actualizan y a simple vista parece correcto, aunque el nodo ya no pertenezca a la misma película.
+- En una lista con campos no controlados, el valor escrito vive en el nodo del `input`; con componentes con estado, el estado también puede seguir a la identidad reutilizada. Por ejemplo, si se escribió «2 entradas» en la primera película y se elimina esa película, la segunda puede reutilizar esa fila y heredar la anotación ajena. Con `key={movie.id}`, la película conserva su nodo y su estado al cambiar de posición.
+
+**Evidencia ya ejecutada:** las dos pruebas de identidad fallaron con la IA original ([paso 8](evidencias/paso08-duel-ai.json)) y pasan después de usar el identificador estable en fixed ([paso 11](evidencias/paso11-06-hero-verde.json)); también pasan en team ([paso 6](evidencias/paso06-duel.json)). No se cambiaron las pruebas para conseguirlo. Esta explicación no se atribuye como redacción personal del estudiante.
