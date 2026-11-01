@@ -6,7 +6,7 @@
 
 Estoy aprendiendo React desde cero y necesito explicaciones sencillas en español, paso a paso. Lee `ENTREGABLE.md` y este archivo antes de continuar. No completes todos los componentes de golpe: yo quiero escribirlos y aprender. Trabajamos un paso del laboratorio por vez y debes detenerte hasta que diga «siguiente». Dentro del paso 5 estamos haciendo un componente a la vez. Al guardar un avance, documenta lo realizado y las pruebas reales en `ENTREGABLE.md`, haz commit y push cuando lo solicite o al completar el paso. No inventes ejecuciones, intentos ni capturas. Registra honestamente la asistencia de IA: el paso 5 pide no usarla, pero ya la he utilizado y eso está documentado. No se ha confirmado autorización docente. No cambies las pruebas, los datos ni las respuestas originales de `src/duel/ai/`.
 
-**Punto exacto para retomar:** MovieCard (tarea 3 del paso 5) está completado y sus seis pruebas pasan. Header y Footer también están completados. Para terminar el paso 5 falta `src/duel/team/Showtimes.jsx`, que sigue con la excepción `TODO(team)`. No se ha empezado ese componente: esperar a que diga «siguiente» y guiarme para que lo escriba yo, sin darme de entrada la solución completa.
+**Punto exacto para retomar:** el trabajo técnico del paso 5 está completado: Header, Footer, MovieCard y Showtimes aprueban sus 23 pruebas. El duelo tiene 23 pruebas aprobadas y 20 fallidas por los cuatro componentes del paso 6 aún sin implementar. El paso 6 no se ha iniciado: esperar a que diga «siguiente» para comenzar por `src/duel/team/MovieList.jsx` y guiarme para que lo escriba yo, sin darme de entrada la solución completa. La asistencia de IA del paso 5 está documentada y no se ha confirmado autorización docente.
 
 ## Repositorios y entorno
 
@@ -64,7 +64,9 @@ No hacen falta extensiones de VS Code. Prettier y Auto Rename Tag se mencionaron
 15. El primer comando de pruebas no pudo iniciar Vitest porque no se reconocía como comando. Se indicó instalar las dependencias con `npm.cmd install`; no se compartió la salida de instalación. Las ejecuciones posteriores ya usaron Vitest `v3.2.7`.
 16. El estudiante compartió una propuesta de MovieCard sin `alt`. El asistente explicó ese atributo, detectó que el archivo guardado aún estaba vacío y después encontró el error `movie.tittle`. Se corrigió a `movie.title`, se añadieron el título y la valoración y, finalmente, la estrella que faltaba. El asistente proporcionó las líneas JSX corregidas; la asistencia no debe ocultarse.
 17. Se compartieron cinco ejecuciones de pruebas durante MovieCard: 2/6, 2/6, 4/6, 4/6 y finalmente 6/6 aprobadas. La última dejó el duelo en 17 aprobadas y 26 fallidas. El asistente realizó una comprobación adicional con el mismo resultado, diferenciada de los intentos del estudiante.
-18. El usuario pidió registrar el avance en GitHub. Esta actualización documenta MovieCard y las ejecuciones reales en `ENTREGABLE.md`, conservando Showtimes como siguiente tarea pendiente.
+18. El usuario pidió registrar el avance en GitHub. Se documentó y subió MovieCard y las ejecuciones reales en el commit `910e6ac`, dejando Showtimes como siguiente tarea pendiente en ese momento.
+19. Al trabajar Showtimes, el estudiante preguntó si podía utilizar `if`. El asistente proporcionó el caso de arreglo vacío y explicó el retorno temprano. La primera ejecución compartida aprobó 3/6 pruebas: el archivo solo tenía la lista con `map`. Tras añadir el `if` antes del `return` existente, la segunda ejecución aprobó 6/6.
+20. Se completó el trabajo técnico del paso 5, con 23 pruebas aprobadas y 20 fallidas. El asistente realizó una verificación adicional con el mismo resultado y documentó el cierre conforme al flujo de registrar los pasos completados. No se ha avanzado al paso 6.
 
 ## Estado de los pasos del laboratorio
 
@@ -105,7 +107,7 @@ Test Files  8 failed (8)
 
 El documento incluye el resumen real y un error de Header. El duelo no incluye las 4 pruebas de datos que sí ejecuta `npm test`.
 
-### Paso 5 — En progreso
+### Paso 5 — Completado técnicamente, con asistencia de IA documentada
 
 Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el duelo después de cada uno. Pide no consultar IA; la asistencia utilizada está registrada y no debe ocultarse ni presentarse como trabajo sin ayuda.
 
@@ -113,25 +115,28 @@ Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el du
 |---|---|---|
 | Header | Implementado y subido | 5 pruebas aprobadas. Dos ejecuciones compartidas tras comenzar la implementación: una fallida y otra aprobada. |
 | Footer | Implementado y subido | 6 pruebas aprobadas en la primera ejecución compartida tras implementarlo. Se corrigió antes la omisión de `return` en el chat. |
-| MovieCard | Implementado | 6 pruebas aprobadas. Cinco ejecuciones compartidas: cuatro parcialmente aprobadas y la última completamente aprobada. Hay una verificación adicional del asistente con el mismo resultado. |
-| Showtimes | Sin implementar | Sigue con la excepción TODO original. |
+| MovieCard | Implementado y subido | 6 pruebas aprobadas. Cinco ejecuciones compartidas: cuatro parcialmente aprobadas y la última completamente aprobada. Hay una verificación adicional del asistente con el mismo resultado. |
+| Showtimes | Implementado | 6 pruebas aprobadas. Dos ejecuciones compartidas: la primera con 3/6 y la segunda con 6/6 aprobadas. La verificación adicional del asistente confirmó el cierre del paso. |
 
-Último resumen real compartido por el estudiante, tras terminar MovieCard:
+Último resumen real compartido por el estudiante, tras terminar Showtimes:
 
 ```text
-✓ src/duel/tests/T3-moviecard.test.jsx (6 tests) 706ms
-✓ src/duel/tests/T1-header.test.jsx (5 tests) 881ms
-✓ src/duel/tests/T2-footer.test.jsx (6 tests) 277ms
+✓ src/duel/tests/T1-header.test.jsx (5 tests) 678ms
+✓ src/duel/tests/T4-showtimes.test.jsx (6 tests) 640ms
+✓ src/duel/tests/T3-moviecard.test.jsx (6 tests) 1149ms
+✓ src/duel/tests/T2-footer.test.jsx (6 tests) 325ms
 
- Test Files  5 failed | 3 passed (8)
-      Tests  26 failed | 17 passed (43)
-   Start at  13:06:45
-   Duration  12.51s
+ Test Files  4 failed | 4 passed (8)
+      Tests  20 failed | 23 passed (43)
+   Start at  13:20:10
+   Duration  25.35s
 ```
 
 **MovieCard terminado:** recibe `movie` y devuelve un `<article>` con una imagen cuyo `src` es `movie.image` y `alt` es `movie.title`, un `<h3>` con el título y un párrafo con `★ {movie.rating}`. Es una sola película, no necesita `map`. `ENTREGABLE.md` contiene la tabla de las cinco ejecuciones compartidas y las correcciones realizadas.
 
-**Para terminar el paso 5:** cuando el usuario diga «siguiente», completar Showtimes usando su cabecera y pruebas. Debe mostrar una lista de horarios cuando existan y solo un párrafo «Sin funciones hoy» cuando la lista esté vacía. Probar después del componente y registrar resultados reales. No avanzar al paso 6 antes de terminarlo.
+**Showtimes terminado:** un `if (times.length === 0)` devuelve únicamente el párrafo «Sin funciones hoy». En el otro caso devuelve un `<ul>` con un `<li>` por horario mediante `map`; la implementación actual usa `key={index}`. El estudiante editó el archivo y el asistente proporcionó el fragmento del caso vacío. `ENTREGABLE.md` contiene las dos ejecuciones compartidas y la verificación adicional.
+
+**Siguiente:** cuando el usuario diga «siguiente», comenzar el paso 6 por MovieList, usando su cabecera y pruebas. Continuar un componente a la vez, sin implementar automáticamente los cuatro ni dar por terminada la revisión visual o la captura de pantalla.
 
 ### Pasos 6 a 15 — Pendientes
 
@@ -158,5 +163,6 @@ Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el du
 | `883620d` | Documentación del avance de Header. |
 | `af087ff` | Implementación y documentación de Footer. |
 | `f80c640` | Contexto para continuar en casa y borrador de MovieCard. |
+| `910e6ac` | MovieCard completado y documentación de sus seis pruebas aprobadas. |
 
 Los archivos del repositorio son la fuente de verdad para el código. `ENTREGABLE.md` conserva el desarrollo de los pasos ya trabajados; este archivo ayuda a recuperar el contexto conversacional. El nuevo asistente debe comprobar el estado actual antes de editar o ejecutar comandos.

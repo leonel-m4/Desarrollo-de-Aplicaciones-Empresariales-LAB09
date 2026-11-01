@@ -140,11 +140,11 @@ El fallo ocurre al intentar renderizar `Header`: su implementación inicial lanz
 
 Este comando solo ejecuta las pruebas del duelo; no incluye las cuatro pruebas de datos que se ejecutan con `npm test`.
 
-## Paso 5. Componentes de las tareas 1 a 4 (en progreso)
+## Paso 5. Componentes de las tareas 1 a 4 (completado técnicamente)
 
 **Enunciado:** Sin consultar a ninguna IA, escribir en `src/duel/team/` los componentes de las tareas 1 a 4 (Header, Footer, MovieCard y Showtimes), comprobando con `npm run duel` después de cada uno. La cabecera de cada archivo dice qué props recibe y qué debe devolver.
 
-**Estado:** Header, Footer y MovieCard completados; Showtimes pendiente. El paso 5 todavía no está terminado.
+**Estado:** Header, Footer, MovieCard y Showtimes implementados, con sus 23 pruebas aprobadas. El trabajo técnico del paso 5 está completado. La asistencia de IA utilizada está registrada en cada tarea; no se presenta como un trabajo realizado sin ayuda ni se ha confirmado autorización docente.
 
 ### Tarea 1. Header
 
@@ -240,3 +240,38 @@ Resumen copiado de la última ejecución compartida por el estudiante:
 **Resultado:** MovieCard está completado. Los 26 fallos restantes corresponden a Showtimes (6), MovieList (5), Synopsis (5), Hero (5) y AgentMessage (5), que siguen con sus excepciones `TODO(team)`. Para terminar el paso 5 falta únicamente Showtimes; los otros cuatro componentes corresponden al paso 6. No se modificaron las pruebas, los datos ni las respuestas originales de `src/duel/ai/`.
 
 **Registro de uso de IA:** El estudiante compartió una propuesta de componente, editó y guardó el archivo y ejecutó las pruebas. El asistente explicó los requisitos, revisó el código y las salidas, diagnosticó el archivo sin guardar y el error `tittle`, y proporcionó las líneas JSX corregidas para imagen, título y valoración. También abrió VS Code, realizó la verificación adicional y documentó el avance para subirlo a GitHub a petición del estudiante. No se presenta esta tarea como realizada sin asistencia de IA; sigue sin confirmarse autorización docente.
+
+### Tarea 4. Showtimes
+
+Se reemplazó la excepción `TODO(team)` en `src/duel/team/Showtimes.jsx`. El componente recibe `times`, un arreglo de horarios. Si `times.length === 0`, un `if` devuelve únicamente `<p>Sin funciones hoy</p>`. Si hay horarios, el segundo `return` devuelve un `<ul>` y utiliza `map` para generar un `<li>` por horario, en el orden recibido. La implementación del estudiante utiliza `key={index}` en cada elemento.
+
+El primer `return` termina la función cuando el arreglo está vacío, por lo que no se necesita un `else` ni se dibuja una lista en ese caso.
+
+**Dificultad y corrección:** La primera ejecución compartida ya aprobaba los casos con horarios, pero el archivo guardado solo contenía el `return` de la lista. Al recibir `[]`, mostraba un `<ul>` vacío: no aparecía el mensaje y seguía existiendo una lista. Los tres fallos tenían esa misma causa. Se añadió la condición de arreglo vacío antes del `return` existente y se guardó el archivo.
+
+**Intentos registrados:** Dos ejecuciones reales de `npm.cmd run duel` compartidas por el estudiante tras empezar Showtimes:
+
+| Ejecución compartida | Hora de inicio | Showtimes: aprobadas / fallidas | Duelo completo: aprobadas / fallidas | Resultado observado |
+|---|---|---|---|---|
+| 1 | 13:17:41 | 3 / 3 | 20 / 23 | La lista con horarios funcionaba; faltaba tratar el arreglo vacío. |
+| 2 | 13:20:10 | 6 / 0 | 23 / 20 | Los casos con horarios y sin horarios pasan. |
+
+Resumen copiado de la última ejecución compartida por el estudiante:
+
+```text
+✓ src/duel/tests/T1-header.test.jsx (5 tests) 678ms
+✓ src/duel/tests/T4-showtimes.test.jsx (6 tests) 640ms
+✓ src/duel/tests/T3-moviecard.test.jsx (6 tests) 1149ms
+✓ src/duel/tests/T2-footer.test.jsx (6 tests) 325ms
+
+ Test Files  4 failed | 4 passed (8)
+      Tests  20 failed | 23 passed (43)
+   Start at  13:20:10
+   Duration  25.35s (transform 3.46s, setup 13.65s, collect 15.61s, tests 3.84s, environment 80.82s, prepare 18.35s)
+```
+
+**Verificación adicional del asistente al cerrar el paso:** Se ejecutó nuevamente el duelo con las opciones `--reporter=json` y `--outputFile`, guardando el informe fuera del repositorio, en la carpeta temporal de OpenCode. Se confirmaron Header 5/5, Footer 6/6, MovieCard 6/6 y Showtimes 6/6: **23 pruebas aprobadas y 20 fallidas**, en 4 archivos aprobados y 4 fallidos. El comando terminó con código de salida `1` por los componentes pendientes del paso 6. Esta comprobación no se cuenta como un intento del estudiante.
+
+**Resultado y cierre del paso 5:** Los cuatro componentes de este paso tienen sus pruebas en verde. Las 20 pruebas que siguen fallando corresponden a MovieList, Synopsis, Hero y AgentMessage, cinco por componente, todavía sin implementar. No se modificaron pruebas, datos ni respuestas originales de `src/duel/ai/`. El paso 6 no se ha iniciado; se espera a que el estudiante diga «siguiente».
+
+**Registro de uso de IA:** El estudiante preguntó si podía usar `if`, editó el componente y compartió las dos ejecuciones. El asistente proporcionó el fragmento de condición y retorno para el arreglo vacío, explicó `times.length`, el retorno temprano y por qué no basta con `!times`, y revisó el archivo y los errores. Tras la primera ejecución volvió a indicar dónde insertar ese fragmento, conservando la lista escrita por el estudiante. También realizó la verificación adicional y documentó el cierre siguiendo el flujo de registrar los pasos completados. No se presenta como un trabajo sin asistencia de IA.
