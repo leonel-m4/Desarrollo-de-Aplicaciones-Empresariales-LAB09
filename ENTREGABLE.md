@@ -345,3 +345,9 @@ Los mensajes completos están en [el informe del paso 8](evidencias/paso08-duel-
 **T1 Header pasa** porque usa las props, elementos semánticos, navegación «Principal», enlaces correctos y claves por `href`. **T8 AgentMessage pasa** porque usa `strong` para el autor y `span` con `{text}`: el mensaje se trata como texto, aunque contenga etiquetas o instrucciones. El nombre «IA» del origen no hace que todos sus componentes sean incorrectos.
 
 **Autoría del análisis:** explicación elaborada por el asistente a partir del código y las pruebas reales; debe revisarla el estudiante antes de entregar.
+
+## Paso 10. Copia de la IA y rojo inicial de fixed
+
+**Enunciado:** Ejecutar `npm run fixed:init` y `npm run duel:fixed`. Arreglar después únicamente `src/duel/fixed/`, sin editar pruebas ni `ai/`.
+
+**Ejecución real del asistente:** `npm.cmd run fixed:init` creó la carpeta sin usar `--force`. La copia inicial coincide con `ai/`. Antes de corregir nada, `npm.cmd run duel:fixed` dio **29 aprobadas y 14 fallidas**, en **2 archivos aprobados y 6 fallidos**, salida `1`: el mismo rojo del paso 8. [Informe inicial](evidencias/paso10-fixed-rojo.json). Este commit conserva esa copia defectuosa para poder comparar el antes y el después en el historial; los arreglos se harán en el paso 11.
