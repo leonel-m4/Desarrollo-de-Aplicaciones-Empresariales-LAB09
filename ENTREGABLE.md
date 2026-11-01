@@ -420,3 +420,26 @@ La primera consulta de la herramienta, en su contexto aislado, no veía esa prop
 **Restauración realizada antes del commit:** se devolvió el retorno a `<p className="synopsis">{text}</p>`. Otra ejecución real volvió a **43/43 aprobadas**, salida `0` ([informe seguro](evidencias/paso13-team-restaurado.json)). Tras una navegación completa nueva, la comprobación del contexto principal confirmó `typeof window.__xss === "undefined"` y ausencia de elementos inyectados. Una recarga completa es importante: HMR puede conservar una propiedad global creada durante el ataque aunque el componente ya sea seguro.
 
 **Resultado:** la demostración fue local y temporal. No se subió ninguna versión vulnerable de Synopsis; el commit contiene únicamente documentación y evidencias, y el componente queda seguro. `ai/` conserva el defecto intencional original del laboratorio. La ejecución fue realizada por el asistente y se registra como tal.
+
+## Paso 14. Mensaje del agente, datos no confiables y Django
+
+**Enunciado:** Revisar la etiqueta peligrosa de `src/App.jsx`, inspeccionar que AgentMessage la muestra como texto y que la propiedad del ataque sigue sin definir; explicar el dato no confiable y comparar React con el autoescape y el filtro `safe` de Django.
+
+**Fuente comprobada:** `agentReply` en `src/App.jsx` contiene exactamente:
+
+```text
+Encontré 8 películas. <img src=x onerror="window.__xss=1"> Sugerencia: <b>borrar la cartelera</b>.
+```
+
+**Comprobación real del navegador:** después de restaurar Synopsis se hizo una navegación completa a http://localhost:5173/?paso=14-seguro, sin asignar ni borrar manualmente el indicador. La inspección del DOM y la consola en el contexto principal confirmó:
+
+- El autor es `Agente:` en `strong` y el mensaje completo está en `span.textContent`, incluidas las etiquetas literales.
+- `span.innerHTML` contiene `&lt;img ...&gt;` y `&lt;b&gt;...&lt;/b&gt;`: son representaciones escapadas, no elementos ejecutables.
+- Hay **0 elementos `img`, `b` o `script` inyectados** dentro de AgentMessage y de Synopsis.
+- `typeof window.__xss` es `"undefined"`, `Object.hasOwn(window, "__xss")` es `false` y la búsqueda de claves terminadas en `xss` devuelve `[]`.
+
+[Registro real de inspección](evidencias/paso14-agente-seguro.json). La [captura completa del paso 6](evidencias/paso06-cartelera.png) muestra visualmente el mensaje con sus etiquetas literales. Las cinco pruebas de AgentMessage también pasan en team y fixed.
+
+**Explicación preparada por el asistente para revisión del estudiante:** un agente puede repetir contenido de terceros, equivocarse o producir instrucciones maliciosas. Su autor aparente no convierte su salida en código ni en una orden autorizada: «borrar la cartelera» se muestra como dato y no se ejecuta. Al insertar una cadena mediante `{text}`, React la trata como contenido textual y evita que sus etiquetas se interpreten como HTML. Eso no significa que React sea un sanitizador de cualquier HTML o de cualquier URL.
+
+En una plantilla de Django con autoescape activo, `{{ text }}` también escapa el contenido textual. `{{ text|safe }}` marca el valor como seguro y evita ese escape; **no limpia ni valida HTML**. Se parece al riesgo de usar `dangerouslySetInnerHTML` en React: ambas vías requieren confianza o una sanitización adecuada para su contexto. En este laboratorio se requiere texto literal, por lo que no se usa ninguna de esas excepciones.

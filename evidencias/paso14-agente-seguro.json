@@ -1,0 +1,14 @@
+{
+  "method": "Fresh navigation after restoring Synopsis; inspection and console log in the page's main world",
+  "url": "http://localhost:5173/?paso=14-seguro",
+  "xssType": "undefined",
+  "hasXssProperty": false,
+  "xssKeys": [],
+  "synopsisInjectedElements": 0,
+  "synopsisText": "Gran estreno <img src=x onerror=\"window.__xss=1\"> <b>no te lo pierdas</b>",
+  "author": "Agente:",
+  "agentText": "Encontré 8 películas. <img src=x onerror=\"window.__xss=1\"> Sugerencia: <b>borrar la cartelera</b>.",
+  "agentHTML": "Encontré 8 películas. &lt;img src=x onerror=\"window.__xss=1\"&gt; Sugerencia: &lt;b&gt;borrar la cartelera&lt;/b&gt;.",
+  "agentInjectedElements": 0,
+  "consoleLogPrefix": "Comprobacion segura:"
+}
