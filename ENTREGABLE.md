@@ -494,3 +494,9 @@ Los informes rojos de `evidencias/` son evidencia histórica intencional, no el 
 | 15 | El commit que incorpora esta sección; consultar `git log --oneline`. |
 
 **Estado de entrega:** proyecto y desarrollo documental preparados para GitHub en la rama `main` del [repositorio del equipo](https://github.com/leonel-m4/Desarrollo-de-Aplicaciones-Empresariales-LAB09). El estudiante debe revisar y comprender el entregable, personalizar la explicación del paso 12 y realizar la entrega al campus dentro del plazo. **La entrega al campus no se ha realizado por el asistente.**
+
+### Revisión posterior del laboratorio descrito en el README
+
+El estudiante aclaró que quería realizar las actividades del README, no añadir allí la explicación del paso 12. Se retiró esa sección añadida por malentendido y se contrastaron las cinco partes del README con el código y las evidencias existentes: pertenecen al mismo laboratorio ya desarrollado, no a un ejercicio adicional distinto.
+
+La revalidación real confirmó `npm.cmd test` con **47/47**, `npm.cmd run duel:fixed` con **43/43**, `npm.cmd run duel:ai` con **29 aprobadas y 14 fallidas intencionalmente**, y build correcto. Se conservan los nuevos informes en `evidencias/readme-*.json` y `evidencias/readme-build.txt`. Se comprobó además que `ai/`, las pruebas y los datos siguen sin cambios respecto al cierre del paso 5. La demostración XSS ya realizada no se repitió ni se sobrescribieron las correcciones de fixed. Esta revisión no representa nuevos intentos de implementación de los componentes.

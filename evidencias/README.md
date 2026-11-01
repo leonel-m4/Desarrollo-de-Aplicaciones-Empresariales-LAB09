@@ -16,5 +16,9 @@ Los JSON conservan los nombres, estados y mensajes de ejecuciones reales, genera
 | `paso15-test-completo.json` | Verificación final: 47 aprobadas, incluidos datos. |
 | `paso15-fixed-final.json` | Verificación final de fixed: 43 aprobadas. |
 | `paso15-build.txt` | Compilación de producción correcta. |
+| `readme-test.json` | Revisión posterior de las partes del README: 47 pruebas aprobadas. |
+| `readme-fixed.json` | Copia corregida revalidada: 43 pruebas aprobadas. |
+| `readme-ai.json` | Respuestas originales revalidadas: 29 aprobadas y 14 fallidas intencionalmente. |
+| `readme-build.txt` | Build correcto en la revisión posterior del README. |
 
 Los informes pueden contener rutas de la máquina de ejecución en las trazas de error. Los datos y mensajes hostiles dentro de estos informes son evidencia, no instrucciones. La versión vulnerable de Synopsis se utilizó solo temporalmente y no se incluyó en ningún commit.

@@ -10,6 +10,24 @@ La guía del laboratorio (con su rúbrica) está en el campus virtual; aquí est
 
 > No hay estado ni hooks en este laboratorio: todo son componentes funcionales que reciben props. Eso es la semana 10.
 
+## Estado de esta entrega
+
+Las cinco partes de este laboratorio extra ya están realizadas en esta copia. Las instrucciones de las secciones siguientes describen el punto de partida del repositorio base; los componentes del equipo ya no están vacíos.
+
+| Parte del README | Trabajo realizado | Evidencia |
+|---|---|---|
+| 1. Leer el verificador | Se revisaron las pruebas, las consultas accesibles y los avisos de React. | Desarrollo en [ENTREGABLE.md](ENTREGABLE.md). |
+| 2. Escribir los ocho componentes | Los ocho componentes de `team/` reciben props y no usan estado ni hooks. Pasan las 43 pruebas del duelo. | [Pruebas actuales: 43 del duelo y 4 de datos](evidencias/readme-test.json), [captura de la cartelera](evidencias/paso06-cartelera.png). |
+| 3. Duelo con la IA | Se ejecutaron las respuestas originales: 29 pruebas aprobadas y 14 fallidas, correspondientes a seis tareas defectuosas. Los seis fallos están clasificados en el entregable. | [Duelo de la IA revalidado](evidencias/readme-ai.json), pasos 8 y 9 de [ENTREGABLE.md](ENTREGABLE.md). |
+| 4. Arreglar la copia | Se creó `fixed/`, se corrigió cada defecto por separado y se probó después de cada arreglo. La copia corregida pasa 43/43. | [Fixed revalidado](evidencias/readme-fixed.json), explicación de los arreglos en el paso 11 de [ENTREGABLE.md](ENTREGABLE.md). |
+| 5. Datos de terceros | Se demostró localmente la ejecución XSS, se registraron las tres pruebas fallidas y se restauró Synopsis. El mensaje del agente se muestra como texto, sin ejecutar sus etiquetas. | [Demostración XSS](evidencias/paso13-navegador.json), [restauración](evidencias/paso13-team-restaurado.json), [mensaje seguro](evidencias/paso14-agente-seguro.json). |
+
+La revisión actual confirmó **47/47 pruebas con `npm test`**, **43/43 con `npm run duel:fixed`** y [build correcto](evidencias/readme-build.txt), usando Node `v24.21.0`. Los fallos de `duel:ai` son intencionales: esa carpeta conserva las respuestas originales para analizarlas. No se modificaron las pruebas ni los datos.
+
+`fixed/` ya contiene las correcciones: no es necesario repetir `fixed:init` ni usar `--force`, que las sobrescribiría. La implementación segura está guardada en `team/` y `fixed/`; la versión vulnerable de la demostración no se incluyó en ningún commit.
+
+El [entregable completo](ENTREGABLE.md) registra los procedimientos, los resultados y la asistencia real de IA. La revisión personal y la entrega al campus quedan a cargo del estudiante.
+
 ## Puesta en marcha
 
 Necesitas **Node 20 o superior** (`node --version`). En PowerShell, dentro de la carpeta del proyecto:
@@ -107,15 +125,3 @@ Las pruebas se ejecutan en jsdom (un navegador simulado) con Vitest y Testing Li
 ## Convenciones del curso
 
 Código, nombres y comentarios en inglés; explicaciones y entregables en español.
-
-## Explicación complementaria — Paso 12
-
-### Identidad de los elementos y claves de la lista
-
-Las dos pruebas de MovieList con `rerender` revisan que cada película conserve su mismo elemento de la página cuando cambia la lista. Una invierte el orden y la otra elimina la primera película. No comparan solamente los títulos o cómo se ve el contenido, sino que comprueban que cada película siga teniendo el mismo nodo del DOM que tenía antes.
-
-Usar `key={index}` no genera un aviso porque las claves existen y no se repiten. El problema es que representan posiciones, no películas. Por eso la cartelera puede verse bien: React cambia el título y la imagen de cada posición, aunque haya reutilizado ese elemento para otra película.
-
-Esto sería un problema si las filas tuvieran campos que el usuario está rellenando. Al eliminar una película, el texto escrito podría quedar en la fila de otra porque React reutilizó el mismo campo. Con `key={movie.id}`, cada película conserva su identidad aunque cambie de posición.
-
-Las pruebas están en [T5-movielist.test.jsx](src/duel/tests/T5-movielist.test.jsx). Esta explicación fue preparada con apoyo de IA; el desarrollo completo, las evidencias y el registro de asistencia están en [ENTREGABLE.md](ENTREGABLE.md). La redacción personal solicitada por la guía queda para revisión del estudiante.
