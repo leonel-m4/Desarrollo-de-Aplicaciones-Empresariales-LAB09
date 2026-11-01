@@ -326,3 +326,22 @@ Test Files  6 failed | 2 passed (8)
 | 8 | AgentMessage | 5 | 0 |
 
 Son **seis tareas defectuosas y catorce pruebas fallidas**, no seis pruebas fallidas. [Informe real con nombres y mensajes](evidencias/paso08-duel-ai.json). Se ejecutaron los archivos originales sin editarlos; el comando lo realizó el asistente.
+
+## Paso 9. Clasificación de los seis fallos
+
+**Enunciado:** Una fila por tarea defectuosa, indicando qué hizo la IA, una prueba que lo detecta con su mensaje y categoría: ruidoso, avisa o silencioso. Explicar por qué T1 y T8 no fallan.
+
+| Tarea | Código original y problema | Prueba que lo detecta y mensaje observado | Categoría |
+|---|---|---|---|
+| T2 Footer | `<footer class="footer">`: usa `class` en vez de `className`. React imprime un aviso que captura `watchConsole`. | «no produce avisos de React en la consola (usa className, no class)»: `AssertionError: expected [ Array(1) ] to deeply equal []`. | **Avisa**: puede verse bien, pero hay un aviso de React. |
+| T3 MovieCard | `<img src={movie.image} />` no tiene `alt`; la imagen no tiene el nombre accesible requerido. | «la imagen tiene como texto alternativo el título de la película»: `Unable to find an element with the alt text: La Última Función`. | **Silencioso**: React no exige `alt` con un aviso. |
+| T4 Showtimes | `if (!times)` no reconoce `[]` como vacío y `times.length && ...` devuelve el número `0`. | «con lista vacía no imprime un 0 suelto: el único texto es el mensaje»: `expected '0' to be 'Sin funciones hoy' // Object.is equality`. También falta el mensaje esperado. | **Silencioso**: mostrar un número es válido para React. |
+| T5 MovieList | `key={index}` identifica posiciones, no películas. Al cambiar el arreglo se reasignan los nodos a otras películas. | «al invertir el orden, cada película conserva su propio nodo del DOM» y «al quitar la primera película, las demás conservan su nodo del DOM»: `expected <li><article …(1)>…(3)</article></li> to be <li><article …(1)>…(3)</article></li> // Object.is equality`. | **Silencioso**: las claves existen y son únicas en ese render, pero no preservan la identidad correcta. |
+| T6 Synopsis | `dangerouslySetInnerHTML` interpreta datos no confiables, crea `img` y `b` y permite ejecutar `onerror`. | «la sinopsis hostil no ejecuta código: window.__xss queda sin definir»: `AssertionError: expected 1 to be undefined`. También fallan texto literal y ausencia de elementos inyectados. | **Silencioso para React**, aunque es una vulnerabilidad XSS: no hay excepción ni aviso que la impida. |
+| T7 Hero | Recibe `{ film }`, pero el contrato entrega `{ movie }`; `film` es `undefined` y `film.title` falla al renderizar. | «no produce avisos de React en la consola»: `TypeError: Cannot read properties of undefined (reading 'title')`. La prueba «con una película correcta se dibuja sin lanzar ningún error» también lo detecta. | **Ruidoso**: el render lanza una excepción. |
+
+Los mensajes completos están en [el informe del paso 8](evidencias/paso08-duel-ai.json). «Silencioso» no significa poco peligroso: describe que React no lo señala por sí mismo.
+
+**T1 Header pasa** porque usa las props, elementos semánticos, navegación «Principal», enlaces correctos y claves por `href`. **T8 AgentMessage pasa** porque usa `strong` para el autor y `span` con `{text}`: el mensaje se trata como texto, aunque contenga etiquetas o instrucciones. El nombre «IA» del origen no hace que todos sus componentes sean incorrectos.
+
+**Autoría del análisis:** explicación elaborada por el asistente a partir del código y las pruebas reales; debe revisarla el estudiante antes de entregar.
