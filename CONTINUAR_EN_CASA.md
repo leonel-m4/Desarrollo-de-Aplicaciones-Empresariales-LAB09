@@ -6,7 +6,7 @@
 
 Estoy aprendiendo React desde cero y necesito explicaciones sencillas en español, paso a paso. Lee `ENTREGABLE.md` y este archivo antes de continuar. No completes todos los componentes de golpe: yo quiero escribirlos y aprender. Trabajamos un paso del laboratorio por vez y debes detenerte hasta que diga «siguiente». Dentro del paso 5 estamos haciendo un componente a la vez. Al guardar un avance, documenta lo realizado y las pruebas reales en `ENTREGABLE.md`, haz commit y push cuando lo solicite o al completar el paso. No inventes ejecuciones, intentos ni capturas. Registra honestamente la asistencia de IA: el paso 5 pide no usarla, pero ya la he utilizado y eso está documentado. No se ha confirmado autorización docente. No cambies las pruebas, los datos ni las respuestas originales de `src/duel/ai/`.
 
-**Punto exacto para retomar:** estoy escribiendo `src/duel/team/MovieCard.jsx` (tarea 3 del paso 5). Solo tengo el `return` y un `<article>` vacío. Quiero intentar completar el contenido yo mismo antes de recibir una solución completa.
+**Punto exacto para retomar:** MovieCard (tarea 3 del paso 5) está completado y sus seis pruebas pasan. Header y Footer también están completados. Para terminar el paso 5 falta `src/duel/team/Showtimes.jsx`, que sigue con la excepción `TODO(team)`. No se ha empezado ese componente: esperar a que diga «siguiente» y guiarme para que lo escriba yo, sin darme de entrada la solución completa.
 
 ## Repositorios y entorno
 
@@ -60,6 +60,11 @@ No hacen falta extensiones de VS Code. Prettier y Auto Rename Tag se mencionaron
 11. El estudiante escribió Footer con dirección y enlaces `tel:` y `mailto:`. Su primer fragmento omitía `return`; se le señaló cómo añadirlo. Después compartió una ejecución con las seis pruebas de Footer y las cinco de Header aprobadas. Se documentó y subió el avance.
 12. Se indicó continuar con MovieCard, explicando sus requisitos sin escribir el componente completo. El estudiante empezó un `<article>` vacío.
 13. Se pidió guardar el contexto del chat en GitHub para continuar en casa. Este documento atiende esa continuidad, sin afirmar que es una transcripción íntegra.
+14. En casa se leyeron la documentación y el código, se repasaron los 15 pasos y se abrió VS Code. Se retomó MovieCard sin implementar automáticamente los componentes pendientes.
+15. El primer comando de pruebas no pudo iniciar Vitest porque no se reconocía como comando. Se indicó instalar las dependencias con `npm.cmd install`; no se compartió la salida de instalación. Las ejecuciones posteriores ya usaron Vitest `v3.2.7`.
+16. El estudiante compartió una propuesta de MovieCard sin `alt`. El asistente explicó ese atributo, detectó que el archivo guardado aún estaba vacío y después encontró el error `movie.tittle`. Se corrigió a `movie.title`, se añadieron el título y la valoración y, finalmente, la estrella que faltaba. El asistente proporcionó las líneas JSX corregidas; la asistencia no debe ocultarse.
+17. Se compartieron cinco ejecuciones de pruebas durante MovieCard: 2/6, 2/6, 4/6, 4/6 y finalmente 6/6 aprobadas. La última dejó el duelo en 17 aprobadas y 26 fallidas. El asistente realizó una comprobación adicional con el mismo resultado, diferenciada de los intentos del estudiante.
+18. El usuario pidió registrar el avance en GitHub. Esta actualización documenta MovieCard y las ejecuciones reales en `ENTREGABLE.md`, conservando Showtimes como siguiente tarea pendiente.
 
 ## Estado de los pasos del laboratorio
 
@@ -108,24 +113,25 @@ Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el du
 |---|---|---|
 | Header | Implementado y subido | 5 pruebas aprobadas. Dos ejecuciones compartidas tras comenzar la implementación: una fallida y otra aprobada. |
 | Footer | Implementado y subido | 6 pruebas aprobadas en la primera ejecución compartida tras implementarlo. Se corrigió antes la omisión de `return` en el chat. |
-| MovieCard | Borrador con article vacío, guardado para continuar | Todavía no se aportaron pruebas tras este borrador. |
+| MovieCard | Implementado | 6 pruebas aprobadas. Cinco ejecuciones compartidas: cuatro parcialmente aprobadas y la última completamente aprobada. Hay una verificación adicional del asistente con el mismo resultado. |
 | Showtimes | Sin implementar | Sigue con la excepción TODO original. |
 
-Último resumen real compartido por el estudiante, tras terminar Footer:
+Último resumen real compartido por el estudiante, tras terminar MovieCard:
 
 ```text
-✓ src/duel/tests/T1-header.test.jsx (5 tests) 178ms
-✓ src/duel/tests/T2-footer.test.jsx (6 tests) 173ms
+✓ src/duel/tests/T3-moviecard.test.jsx (6 tests) 706ms
+✓ src/duel/tests/T1-header.test.jsx (5 tests) 881ms
+✓ src/duel/tests/T2-footer.test.jsx (6 tests) 277ms
 
- Test Files  6 failed | 2 passed (8)
-      Tests  32 failed | 11 passed (43)
-   Start at  16:00:46
-   Duration  2.32s
+ Test Files  5 failed | 3 passed (8)
+      Tests  26 failed | 17 passed (43)
+   Start at  13:06:45
+   Duration  12.51s
 ```
 
-**Requisitos de MovieCard para retomar:** recibe `movie`; debe devolver un `<article>` con una imagen cuyo `src` sea `movie.image` y `alt` sea `movie.title`, un `<h3>` con el título y texto de valoración como `★ 4.5`, utilizando `movie.rating`. Es una sola película, no necesita `map`.
+**MovieCard terminado:** recibe `movie` y devuelve un `<article>` con una imagen cuyo `src` es `movie.image` y `alt` es `movie.title`, un `<h3>` con el título y un párrafo con `★ {movie.rating}`. Es una sola película, no necesita `map`. `ENTREGABLE.md` contiene la tabla de las cinco ejecuciones compartidas y las correcciones realizadas.
 
-**Después:** completar Showtimes usando su cabecera y pruebas. Debe mostrar una lista de horarios cuando existan y solo un párrafo «Sin funciones hoy» cuando la lista esté vacía. Probar después de cada componente y registrar resultados reales.
+**Para terminar el paso 5:** cuando el usuario diga «siguiente», completar Showtimes usando su cabecera y pruebas. Debe mostrar una lista de horarios cuando existan y solo un párrafo «Sin funciones hoy» cuando la lista esté vacía. Probar después del componente y registrar resultados reales. No avanzar al paso 6 antes de terminarlo.
 
 ### Pasos 6 a 15 — Pendientes
 
@@ -151,5 +157,6 @@ Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el du
 | `1ce5321` | Implementación de Header. |
 | `883620d` | Documentación del avance de Header. |
 | `af087ff` | Implementación y documentación de Footer. |
+| `f80c640` | Contexto para continuar en casa y borrador de MovieCard. |
 
 Los archivos del repositorio son la fuente de verdad para el código. `ENTREGABLE.md` conserva el desarrollo de los pasos ya trabajados; este archivo ayuda a recuperar el contexto conversacional. El nuevo asistente debe comprobar el estado actual antes de editar o ejecutar comandos.
