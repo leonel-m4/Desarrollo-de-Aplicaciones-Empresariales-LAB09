@@ -275,3 +275,24 @@ Resumen copiado de la última ejecución compartida por el estudiante:
 **Resultado y cierre del paso 5:** Los cuatro componentes de este paso tienen sus pruebas en verde. Las 20 pruebas que siguen fallando corresponden a MovieList, Synopsis, Hero y AgentMessage, cinco por componente, todavía sin implementar. No se modificaron pruebas, datos ni respuestas originales de `src/duel/ai/`. El paso 6 no se ha iniciado; se espera a que el estudiante diga «siguiente».
 
 **Registro de uso de IA:** El estudiante preguntó si podía usar `if`, editó el componente y compartió las dos ejecuciones. El asistente proporcionó el fragmento de condición y retorno para el arreglo vacío, explicó `times.length`, el retorno temprano y por qué no basta con `!times`, y revisó el archivo y los errores. Tras la primera ejecución volvió a indicar dónde insertar ese fragmento, conservando la lista escrita por el estudiante. También realizó la verificación adicional y documentó el cierre siguiendo el flujo de registrar los pasos completados. No se presenta como un trabajo sin asistencia de IA.
+
+## Paso 6. Componentes restantes y cartelera completa
+
+**Enunciado:** Escribir MovieList, Synopsis, Hero y AgentMessage hasta conseguir todo el duelo en verde; anotar intentos por componente, usar funciones con props y sin estado, comprobar la pantalla con `npm run dev` y adjuntar una captura.
+
+**Desarrollo:** A petición expresa del estudiante de terminar los pasos restantes de forma autónoma, el asistente implementó los cuatro componentes. MovieList compone MovieCard con `key={movie.id}`; Synopsis muestra `{text}` como texto; Hero recibe `movie` y enlaza a `#horarios-<id>`; AgentMessage separa autor en `strong` y texto en `span`, sin interpretar HTML. Se añadieron a MovieCard y Showtimes únicamente las clases de los estilos ya existentes para la revisión visual. No se añadieron estado ni hooks.
+
+| Componente | Intentos de implementación con pruebas en esta etapa | Resultado |
+|---|---|---|
+| MovieList | 1 | 5/5 |
+| Synopsis | 1 | 5/5 |
+| Hero | 1 | 5/5 |
+| AgentMessage | 1 | 5/5 |
+
+Los cuatro se comprobaron juntos en una ejecución real de `npm.cmd run duel`: **43 aprobadas, 0 fallidas, 8 archivos aprobados**, salida `0`. Los intentos pertenecen al asistente, no al estudiante. Los errores `TODO(team)` previos del paso 5 son el punto de partida, no intentos nuevos de estos componentes. Se agregó `scripts/save-test-report.mjs` para conservar resúmenes portables de informes reales de Vitest sin modificar las pruebas.
+
+**Evidencia:** [Informe del duelo](evidencias/paso06-duel.json). Se inició `npm.cmd run dev -- --host localhost` y se inspeccionó http://localhost:5173: ocho tarjetas, ocho pósteres cargados, horarios y mensaje de lista vacía visibles, sinopsis literal sin elementos HTML inyectados y `typeof window.__xss === "undefined"`.
+
+![Captura real de la cartelera completa](evidencias/paso06-cartelera.png)
+
+**Uso de IA:** Implementación, ejecución de pruebas, inspección del navegador y captura realizadas por el asistente por delegación expresa del estudiante. Esa delegación no equivale a autorización docente; no se presenta como trabajo sin IA.

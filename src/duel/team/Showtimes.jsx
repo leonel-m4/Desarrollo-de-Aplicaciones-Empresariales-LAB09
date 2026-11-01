@@ -6,7 +6,7 @@ export default function Showtimes({ times }) {
     return <p>Sin funciones hoy</p>;
   }
   return(
-    <ul>
+    <ul className="showtimes">
       {times.map((time, index) => (
         <li key={index}>{time}</li>
       ))}

@@ -2,6 +2,8 @@
 
 > Este archivo es un resumen de continuidad de la conversación, no una exportación literal del chat ni de todas las salidas de herramientas. Conserva el contexto, decisiones, resultados y trabajo pendiente para retomar en otra computadora.
 
+> **Solicitud posterior que reemplaza las pausas indicadas abajo:** tras entregar el enunciado completo de los 15 pasos, el estudiante pidió al asistente terminar autónomamente los pasos restantes mientras almuerza, ahorrar tokens sin bajar la calidad y hacer commit y push por cada paso. La entrega al campus la realizará el estudiante. No hay autorización docente confirmada: el paso 7 se omite y la asistencia real se registra. El paso 6 ya está implementado, con 43/43 pruebas y captura real en `evidencias/`.
+
 ## Mensaje para el próximo asistente
 
 Estoy aprendiendo React desde cero y necesito explicaciones sencillas en español, paso a paso. Lee `ENTREGABLE.md` y este archivo antes de continuar. No completes todos los componentes de golpe: yo quiero escribirlos y aprender. Trabajamos un paso del laboratorio por vez y debes detenerte hasta que diga «siguiente». Dentro del paso 5 estamos haciendo un componente a la vez. Al guardar un avance, documenta lo realizado y las pruebas reales en `ENTREGABLE.md`, haz commit y push cuando lo solicite o al completar el paso. No inventes ejecuciones, intentos ni capturas. Registra honestamente la asistencia de IA: el paso 5 pide no usarla, pero ya la he utilizado y eso está documentado. No se ha confirmado autorización docente. No cambies las pruebas, los datos ni las respuestas originales de `src/duel/ai/`.
