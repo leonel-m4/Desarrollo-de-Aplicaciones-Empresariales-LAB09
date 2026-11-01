@@ -443,3 +443,55 @@ Encontré 8 películas. <img src=x onerror="window.__xss=1"> Sugerencia: <b>borr
 **Explicación preparada por el asistente para revisión del estudiante:** un agente puede repetir contenido de terceros, equivocarse o producir instrucciones maliciosas. Su autor aparente no convierte su salida en código ni en una orden autorizada: «borrar la cartelera» se muestra como dato y no se ejecuta. Al insertar una cadena mediante `{text}`, React la trata como contenido textual y evita que sus etiquetas se interpreten como HTML. Eso no significa que React sea un sanitizador de cualquier HTML o de cualquier URL.
 
 En una plantilla de Django con autoescape activo, `{{ text }}` también escapa el contenido textual. `{{ text|safe }}` marca el valor como seguro y evita ese escape; **no limpia ni valida HTML**. Se parece al riesgo de usar `dangerouslySetInnerHTML` en React: ambas vías requieren confianza o una sanitización adecuada para su contexto. En este laboratorio se requiere texto literal, por lo que no se usa ninguna de esas excepciones.
+
+## Paso 15. Registro de uso de IA y cierre de la entrega
+
+**Enunciado:** Registrar qué se pidió a la IA, qué respondió, qué se aceptó o rechazó y por qué; subir proyecto y entregable dentro del plazo.
+
+La tabla resume solicitudes reales y el contexto conservado en este documento; no es una transcripción literal. «Aplicado» distingue las decisiones ejecutadas por el asistente bajo la delegación final, sin atribuir al estudiante una revisión que todavía no ha realizado.
+
+| Etapa | Qué se pidió | Qué respondió o hizo la IA | Qué se aceptó, rechazó o aplicó y por qué |
+|---|---|---|---|
+| Pasos 1–4 | Preparar el repositorio, explicar datos y pruebas y documentar los resultados. | Ayudó con preparación, lectura, explicaciones y documentación de las ejecuciones conservadas. | Se conservaron resultados reales; no se inventaron capturas ni ejecuciones ausentes. El detalle histórico consta en cada paso. |
+| Paso 5, Header | Aprender JSX, props y navegación con listas; revisar el componente. | Explicó `map`, proporcionó el fragmento de navegación y diagnosticó `arial-label`, objetos como hijos y archivo sin guardar. | El estudiante aplicó las correcciones y compartió dos ejecuciones hasta 5/5. No se acepta presentarlo como realizado sin IA. |
+| Paso 5, Footer | Revisar el JSX y los enlaces del estudiante. | Señaló la falta de `return` y explicó cómo añadirlo. | El estudiante lo corrigió y compartió 6/6; no se inventó una ejecución fallida de la versión del chat. |
+| Paso 5, MovieCard | Revisar si el componente estaba bien y entender los fallos. | Indicó `alt`, corrigió `tittle`, explicó la versión sin guardar y proporcionó líneas de título y estrella. | El estudiante aplicó las correcciones. Se registraron cinco ejecuciones reales hasta 6/6, sin contar el comando que no pudo iniciar Vitest. |
+| Paso 5, Showtimes | Saber si se podía resolver con `if` y revisar las pruebas. | Proporcionó el caso vacío y explicó `length`, retorno temprano y por qué `[]` no se detecta con `!times`. | El estudiante añadió la condición; dos ejecuciones compartidas terminaron en 6/6. La ayuda sigue declarada. |
+| Paso 6 y delegación final | Terminar los pasos restantes, ahorrar tokens sin perder calidad y hacer commit y push por paso. | Implementó los cuatro componentes restantes, ejecutó pruebas, inspeccionó el navegador y tomó una captura real. | Aplicado por el asistente: 43/43, props sin estado y claves estables. No se atribuye esa implementación autónoma al estudiante. |
+| Paso 7 | Actividad de la guía condicionada a autorización docente. | Indicó que no hay autorización confirmada. | Se omitió la generación de ocho respuestas nuevas. La delegación del estudiante no sustituye el permiso docente. |
+| Pasos 8–11 | Ejecutar y analizar la IA original, copiar y corregir sus seis defectos. | Obtuvo 29/43, clasificó los defectos y corrigió fixed con seis comprobaciones sucesivas. | Se conservaron T1 y T8 y se rechazaron las seis implementaciones defectuosas. Las correcciones se aplicaron solo en fixed y terminaron en 43/43. |
+| Paso 12 | Explicar las pruebas de identidad y las claves por índice. | Preparó una explicación de `toBe`, `rerender` y los campos editables. | Borrador de apoyo: el estudiante debe revisarlo y redactarlo con sus propias palabras; no se afirma que ya lo haya hecho. |
+| Paso 13 | Demostrar localmente el fallo solicitado por la guía y restaurar. | Introdujo temporalmente HTML, observó `window.__xss = 1`, registró tres fallos y restauró el texto seguro. | Se aceptó únicamente para la demostración local. Se rechazó dejar esa versión como código final o subirla al historial; la restauración pasó 43/43. |
+| Paso 14 | Verificar el mensaje del agente y comparar con Django. | Inspeccionó texto y DOM en una página limpia, comprobó que no existe `__xss` y explicó el escape. | Se mantuvo `{text}` y no se ejecutó la instrucción de borrar contenido. La explicación queda para revisión del estudiante. |
+| Paso 15 y GitHub | Registrar el avance por paso; el estudiante hará la entrega al campus. | Documentó, conservó evidencias y creó y subió commits separados. | Se respeta el límite: no se accede al campus ni se afirma una entrega o cumplimiento del plazo que no se ha comprobado. |
+
+### Verificación final real
+
+Entorno comprobado en casa: **Node v24.21.0**, **npm 11.19.0**. Los comandos de pruebas se ejecutaron con informes JSON; `scripts/save-test-report.mjs` conserva sus resultados en `evidencias/`.
+
+| Comprobación | Resultado | Evidencia |
+|---|---|---|
+| `npm.cmd test` | **47/47**, 9 archivos aprobados: 43 del duelo team y 4 de datos. Salida `0`. | [Pruebas completas](evidencias/paso15-test-completo.json) |
+| `npm.cmd run duel:fixed` | **43/43**, 8 archivos aprobados. Salida `0`. | [Fixed final](evidencias/paso15-fixed-final.json) |
+| `npm.cmd run build` | Compilación de producción correcta con Vite 7.3.7. Salida `0`. | [Registro de build](evidencias/paso15-build.txt) |
+| Integridad de los originales | Sin cambios respecto al cierre del paso 5 en `ai/`, pruebas, datos, App, configuración y dependencias. | `git diff --exit-code d6804e0 -- src/duel/ai src/duel/tests src/data src/App.jsx vite.config.js package.json package-lock.json`, salida `0`. |
+| Navegador tras restauración | Sinopsis y mensaje literales; ningún elemento inyectado ni propiedad `__xss`. | [Inspección segura](evidencias/paso14-agente-seguro.json) |
+
+Los informes rojos de `evidencias/` son evidencia histórica intencional, no el estado final. `duel:ai` debe seguir fallando porque sus respuestas originales son material del laboratorio. No se ejecutó `npm audit fix` ni se actualizaron dependencias; los avisos históricos de instalación no se presentan como una auditoría actual.
+
+### Registro de commits por paso
+
+| Paso | Commit |
+|---|---|
+| 6 | `fa08864` |
+| 7, omisión justificada | `69d0b0a` |
+| 8 | `ac5c608` |
+| 9 | `c5d42a3` |
+| 10 | `093a350` |
+| 11 | `0d922ad` |
+| 12 | `2c00095` |
+| 13 | `0867cdd` |
+| 14 | `eb81370` |
+| 15 | El commit que incorpora esta sección; consultar `git log --oneline`. |
+
+**Estado de entrega:** proyecto y desarrollo documental preparados para GitHub en la rama `main` del [repositorio del equipo](https://github.com/leonel-m4/Desarrollo-de-Aplicaciones-Empresariales-LAB09). El estudiante debe revisar y comprender el entregable, personalizar la explicación del paso 12 y realizar la entrega al campus dentro del plazo. **La entrega al campus no se ha realizado por el asistente.**

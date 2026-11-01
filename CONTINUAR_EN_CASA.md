@@ -2,13 +2,13 @@
 
 > Este archivo es un resumen de continuidad de la conversación, no una exportación literal del chat ni de todas las salidas de herramientas. Conserva el contexto, decisiones, resultados y trabajo pendiente para retomar en otra computadora.
 
-> **Solicitud posterior que reemplaza las pausas indicadas abajo:** tras entregar el enunciado completo de los 15 pasos, el estudiante pidió al asistente terminar autónomamente los pasos restantes mientras almuerza, ahorrar tokens sin bajar la calidad y hacer commit y push por cada paso. La entrega al campus la realizará el estudiante. No hay autorización docente confirmada: el paso 7 se omite y la asistencia real se registra. El paso 6 ya está implementado, con 43/43 pruebas y captura real en `evidencias/`.
+> **Estado final y solicitud posterior:** el estudiante delegó el cierre autónomo de los pasos restantes, con commit y push por cada paso. El código y la documentación están preparados: `npm test` pasa 47/47, `duel:fixed` pasa 43/43 y el build funciona. El paso 7 se omitió por falta de autorización docente confirmada. Quedan a cargo del estudiante la revisión personal (en especial redactar el paso 12 con sus palabras) y la entrega al campus. Las antiguas pausas para decir «siguiente» quedaron reemplazadas por esa delegación.
 
 ## Mensaje para el próximo asistente
 
-Estoy aprendiendo React desde cero y necesito explicaciones sencillas en español, paso a paso. Lee `ENTREGABLE.md` y este archivo antes de continuar. No completes todos los componentes de golpe: yo quiero escribirlos y aprender. Trabajamos un paso del laboratorio por vez y debes detenerte hasta que diga «siguiente». Dentro del paso 5 estamos haciendo un componente a la vez. Al guardar un avance, documenta lo realizado y las pruebas reales en `ENTREGABLE.md`, haz commit y push cuando lo solicite o al completar el paso. No inventes ejecuciones, intentos ni capturas. Registra honestamente la asistencia de IA: el paso 5 pide no usarla, pero ya la he utilizado y eso está documentado. No se ha confirmado autorización docente. No cambies las pruebas, los datos ni las respuestas originales de `src/duel/ai/`.
+El estudiante aprende React desde cero y prefiere explicaciones sencillas en español. Inicialmente escribía un componente a la vez con acompañamiento; después pidió expresamente terminar el laboratorio de forma autónoma y hacer commit y push por paso, sin encargarse el asistente del campus. Leer `ENTREGABLE.md` antes de continuar. No inventar pruebas, autoría ni capturas. Registrar la asistencia de IA y no confundir la delegación del estudiante con autorización docente. No cambiar pruebas, datos ni respuestas originales de `src/duel/ai/`.
 
-**Punto exacto para retomar:** el trabajo técnico del paso 5 está completado: Header, Footer, MovieCard y Showtimes aprueban sus 23 pruebas. El duelo tiene 23 pruebas aprobadas y 20 fallidas por los cuatro componentes del paso 6 aún sin implementar. El paso 6 no se ha iniciado: esperar a que diga «siguiente» para comenzar por `src/duel/team/MovieList.jsx` y guiarme para que lo escriba yo, sin darme de entrada la solución completa. La asistencia de IA del paso 5 está documentada y no se ha confirmado autorización docente.
+**Punto exacto para retomar:** todos los componentes de team y fixed están implementados y seguros. No repetir `fixed:init --force`, pues borraría las correcciones. Synopsis quedó restaurado tras la demostración local; los fallos de `ai/` y los informes rojos históricos son intencionales. El próximo trabajo es revisar y comprender el entregable, personalizar el paso 12 y entregar al campus; no queda una tarea de programación pendiente.
 
 ## Repositorios y entorno
 
@@ -19,8 +19,9 @@ Estoy aprendiendo React desde cero y necesito explicaciones sencillas en españo
 - En el equipo del aula se verificó Node `v22.17.1`.
 - Proyecto React 19, Vite 7 y Vitest 3, con JavaScript y JSX.
 - PowerShell bloqueaba `npm.ps1`; se utilizó `npm.cmd` sin cambiar la política de ejecución.
-- La instalación informó de 3 vulnerabilidades (1 moderada, 2 críticas). No se aplicó `npm audit fix --force` ni se cambiaron dependencias para corregirlas.
+- La instalación inicial en el aula informó de 3 vulnerabilidades (1 moderada, 2 críticas). No se aplicó `npm audit fix --force` ni se cambiaron dependencias para corregirlas; no es una auditoría actual.
 - El build inicial pasó. La aplicación no puede mostrarse completa mientras haya componentes que lancen `TODO(team)`.
+- En el cierre en casa se comprobaron Node `v24.21.0`, npm `11.19.0`, las 47 pruebas completas, las 43 de fixed y el build final. Ya no quedan excepciones `TODO(team)` en los componentes.
 
 ## Preparación en casa
 
@@ -69,6 +70,10 @@ No hacen falta extensiones de VS Code. Prettier y Auto Rename Tag se mencionaron
 18. El usuario pidió registrar el avance en GitHub. Se documentó y subió MovieCard y las ejecuciones reales en el commit `910e6ac`, dejando Showtimes como siguiente tarea pendiente en ese momento.
 19. Al trabajar Showtimes, el estudiante preguntó si podía utilizar `if`. El asistente proporcionó el caso de arreglo vacío y explicó el retorno temprano. La primera ejecución compartida aprobó 3/6 pruebas: el archivo solo tenía la lista con `map`. Tras añadir el `if` antes del `return` existente, la segunda ejecución aprobó 6/6.
 20. Se completó el trabajo técnico del paso 5, con 23 pruebas aprobadas y 20 fallidas. El asistente realizó una verificación adicional con el mismo resultado y documentó el cierre conforme al flujo de registrar los pasos completados. No se ha avanzado al paso 6.
+21. El estudiante compartió los 15 enunciados completos y preguntó por las restricciones de IA. Se distinguió la prohibición explícita del paso 5 de la autorización condicionada del paso 7.
+22. Luego pidió terminar los pasos restantes mientras almorzaba, ahorrar tokens sin perder calidad y hacer commit y push por paso. Aclaró que la entrega al campus la hará él. Esa solicitud reemplazó las pausas anteriores.
+23. El asistente implementó el paso 6 (un intento probado por componente), tomó la captura real, omitió el 7, midió y clasificó los fallos originales y corrigió fixed de uno en uno hasta 43/43, conservando informes por etapa.
+24. Preparó la explicación de identidad, demostró XSS localmente con tres fallos y `window.__xss = 1`, restauró la versión segura antes de subir cambios, verificó el mensaje del agente en una página limpia y completó el registro real de uso de IA. La redacción personal del paso 12 sigue a cargo del estudiante.
 
 ## Estado de los pasos del laboratorio
 
@@ -138,20 +143,20 @@ Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el du
 
 **Showtimes terminado:** un `if (times.length === 0)` devuelve únicamente el párrafo «Sin funciones hoy». En el otro caso devuelve un `<ul>` con un `<li>` por horario mediante `map`; la implementación actual usa `key={index}`. El estudiante editó el archivo y el asistente proporcionó el fragmento del caso vacío. `ENTREGABLE.md` contiene las dos ejecuciones compartidas y la verificación adicional.
 
-**Siguiente:** cuando el usuario diga «siguiente», comenzar el paso 6 por MovieList, usando su cabecera y pruebas. Continuar un componente a la vez, sin implementar automáticamente los cuatro ni dar por terminada la revisión visual o la captura de pantalla.
+**Avance posterior:** los pasos siguientes se ejecutaron por delegación expresa del estudiante, como se resume a continuación.
 
-### Pasos 6 a 15 — Pendientes
+### Pasos 6 a 15 — Estado final
 
-6. Implementar MovieList, Synopsis, Hero y AgentMessage; registrar intentos reales, lograr el duelo completo en verde, verificar la interfaz y adjuntar una captura real.
-7. Solo si el docente autoriza IA, pedir ocho implementaciones desde cero y guardar sus respuestas aparte para comparar. Si no hay autorización, omitir este paso. No asumir que la asistencia ya recibida equivale a esa autorización.
-8. Ejecutar `npm run duel:ai`; registrar cuántas pruebas pasan y fallan y las tareas afectadas.
-9. Clasificar los seis fallos de las respuestas originales de IA en una tabla: código, prueba y mensaje, y categoría ruidoso/avisa/silencioso. Explicar por qué T1 y T8 no fallan. Aún no se ejecutó esta comprobación.
-10. Ejecutar `npm run fixed:init` y `npm run duel:fixed` para registrar el rojo inicial. Editar las correcciones solo en `src/duel/fixed/`, nunca en `ai/` ni en las pruebas.
-11. Corregir los seis fallos uno a uno, probar después de cada arreglo, registrar cuántos fallos quedan y explicar cada causa hasta conseguir todo verde.
-12. Leer las dos pruebas de MovieList con `rerender`; explicar identidad de nodos y el problema de `key={index}` al reordenar o quitar elementos, especialmente con campos editables.
-13. Hacer una demostración local y temporal de Synopsis con `dangerouslySetInnerHTML`; comprobar la ejecución de `window.__xss`, registrar las tres pruebas fallidas y RESTAURAR después la implementación segura. No dejar el componente vulnerable como versión final.
-14. Revisar el mensaje del agente en `src/App.jsx`, verificar que AgentMessage lo muestra como texto y que la propiedad del ataque sigue sin definir en una comprobación limpia; explicar datos no confiables y comparar escape de React con autoescape de Django y el filtro `safe`.
-15. Completar tabla de uso de IA con solicitudes, respuestas y decisiones reales. Subir proyecto al repositorio y entregar el documento en el campus dentro del plazo. La entrega al campus no se ha realizado.
+6. Implementados por el asistente, 43/43 pruebas, un intento con pruebas por cada componente y captura real en `evidencias/paso06-cartelera.png`.
+7. Omitido: no hay autorización docente confirmada. No se generaron ocho respuestas nuevas.
+8. Ejecutado: IA original, 29 aprobadas y 14 fallidas en seis tareas.
+9. Tabla de clasificación y explicación de T1 y T8 en el entregable.
+10. Copia inicial creada sin `--force`, 29 aprobadas y 14 fallidas; estado inicial conservado en su commit.
+11. Seis arreglos secuenciales y seis ejecuciones: 13, 12, 10, 8, 5 y 0 fallos restantes. Fixed termina 43/43.
+12. Explicación y evidencia preparadas por el asistente; falta revisión y redacción personal del estudiante para cumplir «con tus palabras».
+13. Demostración local real, 40 aprobadas y 3 fallidas, flag 1; restauración segura comprobada con 43/43. No se subió código temporalmente vulnerable.
+14. Inspección del contexto principal en una página nueva: cero elementos inyectados y `__xss` inexistente. Comparación con Django preparada para revisión.
+15. Tabla real de IA y comprobaciones finales preparadas. Cada paso tiene commit y push propio. **Entrega al campus pendiente, exclusivamente a cargo del estudiante.**
 
 ## Commits de referencia
 
@@ -166,5 +171,15 @@ Enunciado: escribir Header, Footer, MovieCard y Showtimes, comprobando con el du
 | `af087ff` | Implementación y documentación de Footer. |
 | `f80c640` | Contexto para continuar en casa y borrador de MovieCard. |
 | `910e6ac` | MovieCard completado y documentación de sus seis pruebas aprobadas. |
+| `d6804e0` | Showtimes y cierre técnico del paso 5. |
+| `fa08864` | Paso 6: componentes restantes, 43 pruebas y captura. |
+| `69d0b0a` | Paso 7: omisión justificada. |
+| `ac5c608` | Paso 8: resultado de la IA original. |
+| `c5d42a3` | Paso 9: clasificación de defectos. |
+| `093a350` | Paso 10: copia inicial de fixed. |
+| `0d922ad` | Paso 11: correcciones y seis comprobaciones. |
+| `2c00095` | Paso 12: identidad del DOM. |
+| `0867cdd` | Paso 13: evidencia XSS y restauración segura. |
+| `eb81370` | Paso 14: mensaje del agente y escape. |
 
 Los archivos del repositorio son la fuente de verdad para el código. `ENTREGABLE.md` conserva el desarrollo de los pasos ya trabajados; este archivo ayuda a recuperar el contexto conversacional. El nuevo asistente debe comprobar el estado actual antes de editar o ejecutar comandos.
